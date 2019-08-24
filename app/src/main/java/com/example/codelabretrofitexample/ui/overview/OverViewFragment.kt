@@ -1,50 +1,79 @@
 package com.example.codelabretrofitexample.ui.overview
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.codelabretrofitexample.R
 import com.example.codelabretrofitexample.databinding.OverviewLayoutBinding
+import com.example.codelabretrofitexample.model.MarsProperties
+import com.example.codelabretrofitexample.service.Marsapifilter
 
-class OverViewFragment:Fragment() {
-    lateinit var binding:OverviewLayoutBinding
-    lateinit var overviewViewModel:OverViewViewModel
-    lateinit var overViewAdapter:OverViewAdapter
+class OverViewFragment : Fragment() {
+
+    lateinit var binding: OverviewLayoutBinding
+    lateinit var overviewViewModel: OverViewViewModel
+    lateinit var overViewAdapter: OverViewAdapter
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-         binding = DataBindingUtil.inflate<OverviewLayoutBinding>(inflater, R.layout.overview_layout, container, false)
-
-      overViewAdapter=OverViewAdapter(emptyList())
-
+        binding = DataBindingUtil.inflate(inflater, R.layout.overview_layout, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        overviewViewModel= ViewModelProviders.of(this).get(OverViewViewModel::class.java)
-        overviewViewModel.overViewLiveData.observe(this, Observer {
-            it?.let {
-               overViewAdapter.updateAdapter(it)
-                var responce="Total property list is ${it.size}"
-                binding.itemSize.text=responce
-                binding.image.text=it[0].img_src
+        initUi()
+        overviewViewModel = ViewModelProviders.of(this).get(OverViewViewModel::class.java)
+        binding.viewModel = overviewViewModel
+        binding.lifecycleOwner = this
 
-            }
-        })
-        uiData()
-
-
+       overviewViewModel.properties.observe(this, Observer {
+           it?.let {
+               binding.itemSize.text="Total MarsProperties are ${it.size.toString()}"
+           }
+       })
     }
 
-    fun uiData(){
-        with(binding.recyclerView){
-            layoutManager=LinearLayoutManager(activity)
-            adapter=overViewAdapter
+    val clickListener = object : ShekarClick {
+        override fun onClick(item: MarsProperties) {
+            findNavController().navigate(OverViewFragmentDirections.actionShowDetails(item))
+
+           // overviewViewModel.displayPropertyDetails(item)
+            overviewViewModel.displayProprtydetaiscomplete()
         }
     }
+
+    private fun initUi() {
+        overViewAdapter = OverViewAdapter(emptyList(),clickListener )
+        with(binding.recyclerView) {
+            layoutManager = GridLayoutManager(activity, 2)
+            adapter = overViewAdapter
+        }
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.verflow_menu, menu)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        overviewViewModel.updateFilter(
+                when (item.itemId) {
+                    R.id.show_rent -> Marsapifilter.SHOW_RENT
+                    R.id.show_buy -> Marsapifilter.SHOW_BUY
+                    else -> Marsapifilter.SHOW_ALL
+                })
+        return true
+    }
+
+}
+interface ShekarClick{
+    fun onClick(item: MarsProperties)
 }

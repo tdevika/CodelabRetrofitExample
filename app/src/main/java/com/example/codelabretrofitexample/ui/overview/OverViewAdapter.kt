@@ -1,14 +1,15 @@
 package com.example.codelabretrofitexample.ui.overview
 
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.codelabretrofitexample.databinding.OverviewItemBinding
 import com.example.codelabretrofitexample.model.MarsProperties
 
-class OverViewAdapter(var marsItem: List<MarsProperties>) : RecyclerView.Adapter<OverViewViewHolder>() {
+class OverViewAdapter(var marsItem: List<MarsProperties>,val  onClickListner: ShekarClick) : RecyclerView.Adapter<OverViewViewHolder>() {
+
+
     fun updateAdapter(repository: List<MarsProperties>) {
         this.marsItem = repository
         notifyDataSetChanged()
@@ -25,8 +26,11 @@ class OverViewAdapter(var marsItem: List<MarsProperties>) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: OverViewViewHolder, position: Int) {
-        var item = marsItem[position]
+        val item = marsItem[position]
         holder.bind(item)
+        holder.itemView.setOnClickListener {
+            onClickListner.onClick(item)
+        }
     }
 }
 
@@ -35,3 +39,4 @@ class OverViewViewHolder(var binding: OverviewItemBinding) : RecyclerView.ViewHo
         binding.modelData = item
     }
 }
+

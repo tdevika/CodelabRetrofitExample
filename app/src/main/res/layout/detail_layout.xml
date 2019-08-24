@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="detailViewModel"
+            type="com.example.codelabretrofitexample.ui.detail.DetailViewModel" />
+    </data>
 <LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:layout_margin="10dp"
+    android:scaleType="centerCrop"
+    app:iUrl="@{detailViewModel._selectedProperty.img_src}"
+    tools:src="@tools:sample/backgrounds/scenic"
+    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{detailViewModel.displaypropertytype}"
+        android:textSize="35sp"
+    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{detailViewModel.displyPropertyPrice}"
+        android:textSize="35sp"
+        android:padding="10dp"
+        />
 
 
 </LinearLayout>

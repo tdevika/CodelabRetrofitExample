@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
-    app:startDestination="@id/overViewFragment">
+            xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+            app:startDestination="@id/overViewFragment">
 
     <fragment
-        android:id="@+id/overViewFragment"
-        android:name="com.example.codelabretrofitexample.ui.overview.OverViewFragment"
-        android:label="OverViewFragment" />
+            android:id="@+id/overViewFragment"
+            android:name="com.example.codelabretrofitexample.ui.overview.OverViewFragment"
+            android:label="OverViewFragment">
+        <action
+                android:id="@+id/action_showDetails"
+                app:destination="@id/detailFragment"/>
+
+    </fragment>
+    <fragment
+            android:id="@+id/detailFragment"
+            android:name="com.example.codelabretrofitexample.ui.detail.DetailFragment"
+            android:label="DetailFragment">
+    <argument android:name="selectedProperty"
+              app:argType="com.example.codelabretrofitexample.model.MarsProperties"/>
+    </fragment>
 </navigation>

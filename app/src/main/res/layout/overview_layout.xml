@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
         <variable
-            name="imagedata"
-            type="com.example.codelabretrofitexample.model.MarsProperties" />
+            name="viewModel"
+            type="com.example.codelabretrofitexample.ui.overview.OverViewViewModel" />
     </data>
-
-<LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:id="@+id/itemSize"
-        android:textSize="30dp"/>
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerView"
-        android:textSize="30dp">
+        android:orientation="vertical">
 
-    </androidx.recyclerview.widget.RecyclerView>
-    <TextView
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/itemSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="30dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="30dp"
+            app:listData="@{viewModel.properties}"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:id="@+id/image"
-        android:textSize="30dp"
-        android:text="@{imagedata.img_src}"/>
-
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:marsApiStatus="@{viewModel.status}" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -6,13 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import com.example.codelabretrofitexample.MyApplication
 import com.example.codelabretrofitexample.R
 import com.example.codelabretrofitexample.databinding.DetailLayoutBinding
 
-class DetailFragment:Fragment() {
+class DetailFragment : Fragment() {
+    lateinit var binding: DetailLayoutBinding
+    lateinit var detailViewModel: DetailViewModel
+    lateinit var detailViewModelFactory: DetailViewModelFactory
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding=DataBindingUtil.inflate<DetailLayoutBinding>(inflater, R.layout.detail_layout,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.detail_layout, container, false)
+
         return binding.root
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        var item = DetailFragmentArgs.fromBundle(arguments!!).selectedProperty
+        detailViewModelFactory = DetailViewModelFactory(item, requireNotNull(activity).application)
+        detailViewModel = ViewModelProviders.of(this,detailViewModelFactory).get(DetailViewModel::class.java)
+        binding.detailViewModel = detailViewModel
+        binding.lifecycleOwner = this
     }
 }

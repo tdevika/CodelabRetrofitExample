@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CodelabRetrofitExample</string>
+    <string name="show_all">Show All</string>
+    <string name="show_rent">Rent</string>
+    <string name="show_buy">Buy</string>
+    <string name="type_sale">Sale</string>
+    <string name="type_rent">Rent</string>
+    <string name="display_type">For %s</string>
+    <string name="display_monthly_rental">$%d/month</string>
+    <string name="disply_price">$%d</string>
 </resources>
