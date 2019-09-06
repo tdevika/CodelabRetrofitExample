@@ -1,4 +1,4 @@
-package com.example.codelabretrofitexample.ui.detail
+package com.example.realestatelist.ui.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.example.codelabretrofitexample.MyApplication
-import com.example.codelabretrofitexample.R
-import com.example.codelabretrofitexample.databinding.DetailLayoutBinding
+import com.example.realestatelist.R
+import com.example.realestatelist.databinding.DetailLayoutBinding
 
 class DetailFragment : Fragment() {
     lateinit var binding: DetailLayoutBinding

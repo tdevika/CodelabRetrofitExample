@@ -1,4 +1,4 @@
-package com.example.codelabretrofitexample;
+package com.example.realestatelist;
 
 import org.junit.Test;
 

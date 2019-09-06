@@ -1,10 +1,9 @@
-package com.example.codelabretrofitexample.ui.detail
+package com.example.realestatelist.ui.detail
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.codelabretrofitexample.MyApplication
-import com.example.codelabretrofitexample.model.MarsProperties
+import com.example.realestatelist.model.MarsProperties
 import java.lang.IllegalArgumentException
 
 class DetailViewModelFactory(val marsProperties: MarsProperties, val app:Application):ViewModelProvider.Factory{

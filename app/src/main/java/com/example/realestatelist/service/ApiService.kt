@@ -1,6 +1,6 @@
-package com.example.codelabretrofitexample.service
+package com.example.realestatelist.service
 
-import com.example.codelabretrofitexample.model.MarsProperties
+import com.example.realestatelist.model.MarsProperties
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query

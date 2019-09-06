@@ -1,11 +1,11 @@
-package com.example.codelabretrofitexample.ui.overview
+package com.example.realestatelist.ui.overview
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.codelabretrofitexample.MyApplication
-import com.example.codelabretrofitexample.model.MarsProperties
-import com.example.codelabretrofitexample.service.Marsapifilter
+import com.example.realestatelist.MyApplication
+import com.example.realestatelist.model.MarsProperties
+import com.example.realestatelist.service.Marsapifilter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

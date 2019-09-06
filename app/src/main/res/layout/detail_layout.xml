@@ -5,7 +5,7 @@
     <data>
         <variable
             name="detailViewModel"
-            type="com.example.codelabretrofitexample.ui.detail.DetailViewModel" />
+            type="com.example.realestatelist.ui.detail.DetailViewModel" />
     </data>
 <LinearLayout
     android:orientation="vertical"

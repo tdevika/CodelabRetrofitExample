@@ -1,4 +1,4 @@
-package com.example.codelabretrofitexample.ui.overview
+package com.example.realestatelist.ui.overview
 
 import android.os.Bundle
 import android.view.*
@@ -7,11 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import com.example.codelabretrofitexample.R
-import com.example.codelabretrofitexample.databinding.OverviewLayoutBinding
-import com.example.codelabretrofitexample.model.MarsProperties
-import com.example.codelabretrofitexample.service.Marsapifilter
+import com.example.realestatelist.R
+import com.example.realestatelist.databinding.OverviewLayoutBinding
+import com.example.realestatelist.model.MarsProperties
+import com.example.realestatelist.service.Marsapifilter
 
 class OverViewFragment : Fragment() {
 

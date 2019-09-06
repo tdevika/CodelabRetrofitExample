@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.codelabretrofitexample.ui.overview.OverViewViewModel" />
+            type="com.example.realestatelist.ui.overview.OverViewViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

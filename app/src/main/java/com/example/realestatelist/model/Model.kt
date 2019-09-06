@@ -1,4 +1,4 @@
-package com.example.codelabretrofitexample.model
+package com.example.realestatelist.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

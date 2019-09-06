@@ -1,11 +1,10 @@
-package com.example.codelabretrofitexample.ui.overview
+package com.example.realestatelist.ui.overview
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.codelabretrofitexample.databinding.OverviewItemBinding
-import com.example.codelabretrofitexample.model.MarsProperties
+import com.example.realestatelist.databinding.OverviewItemBinding
+import com.example.realestatelist.model.MarsProperties
 
 class OverViewAdapter(var marsItem: List<MarsProperties>,val  onClickListner: ShekarClick) : RecyclerView.Adapter<OverViewViewHolder>() {
 

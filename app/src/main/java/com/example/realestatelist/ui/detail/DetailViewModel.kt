@@ -1,9 +1,9 @@
-package com.example.codelabretrofitexample.ui.detail
+package com.example.realestatelist.ui.detail
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.codelabretrofitexample.model.MarsProperties
-import com.example.codelabretrofitexample.R
+import com.example.realestatelist.model.MarsProperties
+import com.example.realestatelist.R
 
 class DetailViewModel(val marsProperty: MarsProperties, app: Application) : AndroidViewModel(app) {
     val _selectedProperty = MutableLiveData<MarsProperties>()

@@ -1,8 +1,7 @@
-package com.example.codelabretrofitexample
+package com.example.realestatelist
 
 import android.app.Application
-import android.content.pm.ApplicationInfo
-import com.example.codelabretrofitexample.service.ApiService
+import com.example.realestatelist.service.ApiService
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

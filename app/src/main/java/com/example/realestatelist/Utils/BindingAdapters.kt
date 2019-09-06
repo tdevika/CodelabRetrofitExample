@@ -1,4 +1,4 @@
-package com.example.codelabretrofitexample.Utils
+package com.example.realestatelist.Utils
 
 import android.view.View
 import android.widget.ImageView
@@ -6,10 +6,10 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.codelabretrofitexample.R
-import com.example.codelabretrofitexample.model.MarsProperties
-import com.example.codelabretrofitexample.ui.overview.MarsApiStatus
-import com.example.codelabretrofitexample.ui.overview.OverViewAdapter
+import com.example.realestatelist.R
+import com.example.realestatelist.model.MarsProperties
+import com.example.realestatelist.ui.overview.MarsApiStatus
+import com.example.realestatelist.ui.overview.OverViewAdapter
 
 @BindingAdapter("iUrl")
 fun bindImage(imgView: ImageView, iiUrl: String) {
